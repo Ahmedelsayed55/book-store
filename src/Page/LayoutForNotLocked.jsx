@@ -6,13 +6,13 @@ import Footer from '../Component/Footer'
 const LayoutForNotLocked = () => {
   return (
     <div>
-      <header  className={`bg-[url('/navbarimg.png')] `}> 
+      <header  className={`bg-[url('/navbarimg.png')] h-64 `}> 
         <LogNavBar/>
       </header>
       <main className='bg-[#F5F5F5]'>
         <Outlet/>
       </main>
-      <footer>
+      <footer className='bg-[#3B2F4A] h-64'>
         <Footer/>
       </footer>
     </div>

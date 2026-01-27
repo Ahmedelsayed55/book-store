@@ -104,7 +104,7 @@ const Register = () => {
             Password
             <Field
               name="password"
-              type="text"
+              type="password"
               placeholder="Enter Password"
               className=" p-4 rounded-lg border border-[#22222233]/20 outline-0"
             />
@@ -119,7 +119,7 @@ const Register = () => {
             Confirm Password
             <Field
               name="password_confirmation"
-              type="text"
+              type="password"
               placeholder="Enter Password"
               className=" p-4 rounded-lg border border-[#22222233]/20 outline-0"
             />
