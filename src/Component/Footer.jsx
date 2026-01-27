@@ -1,6 +1,7 @@
 import React from 'react'
 import bockMarck from "../assets/Vector.png"
 import { MdOutlineFacebook } from 'react-icons/md'
+import { NavLink } from 'react-router-dom'
 const Footer = () => {
   return (
     <div className='flex flex-col justify-center gap-5'>
