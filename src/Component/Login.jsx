@@ -9,7 +9,6 @@ import * as Yup from "yup";
 const Login = () => {
   const navigate = useNavigate()
   const handelLogin = (values) => {
-    console.log(values);
     axios
       .post(domain + "/login", values)
       .then((res) => {

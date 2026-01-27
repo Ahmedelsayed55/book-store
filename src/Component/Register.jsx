@@ -21,7 +21,7 @@ const Register = () => {
         console.log("ERROR DATA:", err.response?.data);
       });
   };
-  const registerSchema = Yup.object().shape({
+  const registerSchema = Yup.object().shape({ 
     first_name: Yup.string()
       .min(2, "First name is too short")
       .required("First name is required"),
