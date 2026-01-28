@@ -7,21 +7,23 @@ import { Link, useNavigate } from "react-router-dom";
 import { domain } from "../Store";
 import * as Yup from "yup";
 const Register = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handelRegister = (values) => {
     console.log(values);
     axios
       .post(domain + "/register", values)
       .then((res) => {
-        console.log(res);
-        navigate("/")
+
+        navigate("/");
+        localStorage.setItem("userInfo", JSON.stringify(res.data.data.user));
+        localStorage.setItem("token", res.data.data.token);
       })
       .catch((err) => {
         console.log("STATUS:", err.response?.status);
         console.log("ERROR DATA:", err.response?.data);
       });
   };
-  const registerSchema = Yup.object().shape({ 
+  const registerSchema = Yup.object().shape({
     first_name: Yup.string()
       .min(2, "First name is too short")
       .required("First name is required"),
@@ -145,7 +147,7 @@ const Register = () => {
           <div className="flex flex-col gap-10  w-full">
             <p className="text-center">
               Already have an account?{" "}
-              <Link to={"/"} className="text-[#D9176C]">
+              <Link to={"/home/login"} className="text-[#D9176C]">
                 Log in
               </Link>{" "}
             </p>

@@ -6,28 +6,31 @@ import { MdOutlineFacebook } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { domain } from "../Store";
 import * as Yup from "yup";
+import toast from "react-hot-toast";
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handelLogin = (values) => {
     axios
       .post(domain + "/login", values)
       .then((res) => {
-        console.log(res);
-        navigate("/home")
+        toast.success("Log in is Successfully");
+        navigate("/");
+        localStorage.setItem("userInfo", JSON.stringify(res.data.data.user))
+        localStorage.setItem("token",res.data.data.token)
       })
       .catch((err) => {
-         console.log("STATUS:", err.response?.status);
-  console.log("ERROR DATA:", err.response?.data);
+        console.log("STATUS:", err.response?.status);
+        console.log("ERROR DATA:", err.response?.data);
       });
   };
   const loginSchema = Yup.object({
-  email: Yup.string()
-    .email("Email is not valid")
-    .required("Email is required"),
-  password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
-});
+    email: Yup.string()
+      .email("Email is not valid")
+      .required("Email is required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
+  });
   return (
     <div className=" py-16">
       <h1 className="text-center py-10 text-[#D9176C]">Welcome Back!</h1>
@@ -69,7 +72,7 @@ const Login = () => {
               <input type="checkbox" />
               Remember me
             </label>
-            <Link to={"/forget"} className="text-[#D9176C]">
+            <Link to={"/home/forget"} className="text-[#D9176C]">
               Forget Password ?
             </Link>
           </div>
@@ -83,7 +86,7 @@ const Login = () => {
           <div className="flex flex-col gap-10  w-full">
             <p className="text-center">
               don't have an account{" "}
-              <Link to={"/register"} className="text-[#D9176C]">
+              <Link to={"/home/register"} className="text-[#D9176C]">
                 Sign Up
               </Link>{" "}
             </p>

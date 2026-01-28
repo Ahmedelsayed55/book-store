@@ -1,0 +1,78 @@
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { GrFavorite } from "react-icons/gr";
+import { BsCart3 } from "react-icons/bs";
+import userImg from "../assets/userimg.png";
+import { FaChevronDown } from "react-icons/fa";
+import LinkForNav from "../Component/LinkForNav";
+import ModelUser from "./ModelUser";
+const MainNavbar = () => {
+  const [showInfo, setShowInfo] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("userInfo"));
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setUserInfo(storedUser);
+    console.log(storedUser);
+  }, []);
+
+  return (
+    <div className="w-full relative bg-white/20 py-6">
+      <div className="container mx-auto  flex justify-between items-center">
+        <LinkForNav />
+        <div className="flex gap-5 items-center">
+          <div className="flex gap-5">
+            <NavLink
+              className={`relative text-white text-2xl`}
+              to={"favorites"}
+            >
+              <GrFavorite />
+              <span
+                className="absolute text-[10px] p-0.5 border border-white
+                     text-white bg-[#D9176C] rounded-full -top-1.5 -right-1.5"
+              >
+                12
+              </span>
+            </NavLink>
+            <NavLink
+              className={`relative text-white text-2xl`}
+              to={"favorites"}
+            >
+              <BsCart3 />
+              <span
+                className="absolute text-[10px] p-0.5 border border-white
+                     text-white bg-[#D9176C] rounded-full -top-1.5 -right-1.5"
+              >
+                12
+              </span>
+            </NavLink>
+          </div>
+          <div className="flex gap-5">
+            <img src={userImg} alt="" />
+            <div
+              className="relative text-white cursor-pointer flex items-center gap-6"
+              onClick={() => {
+                setShowInfo(!showInfo)
+              }}
+            >
+              <div>
+                <h3>
+                  {userInfo?.first_name} {userInfo?.last_name}
+                </h3>
+                <p className="text-[14px] text-[#FFFFFF80]">
+                  {userInfo?.email}
+                </p>
+              </div>
+              {showInfo ? <FaChevronDown /> : <div></div>}
+              {showInfo && <ModelUser/> }
+            </div>
+          </div>
+        </div>
+      </div>
+       
+    
+    </div>
+  );
+};
+
+export default MainNavbar;
