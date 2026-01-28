@@ -23,7 +23,9 @@ const MainNavbar = () => {
         <div className="flex gap-5 items-center">
           <div className="flex gap-5">
             <NavLink
-              className={`relative text-white text-2xl`}
+                     className={({ isActive }) =>
+          `font-bold relative text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
+        }
               to={"favorites"}
             >
               <GrFavorite />
@@ -35,8 +37,11 @@ const MainNavbar = () => {
               </span>
             </NavLink>
             <NavLink
-              className={`relative text-white text-2xl`}
-              to={"favorites"}
+              className={({ isActive }) =>
+          `font-bold relative text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
+        }
+           
+              to={"cart"}
             >
               <BsCart3 />
               <span

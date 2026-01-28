@@ -9,7 +9,15 @@ import CreateNewPassword from "./Component/CreateNewPassword";
 import Home from "./Component/Home";
 import { Toaster } from "react-hot-toast";
 import HomeLayout from "./LayoutPage/HomeLayout";
-import MainHome from "./ComponentMainLayout/MainHome";
+import MainHome from "./Pages/MainHome";
+import About from "./Pages/About";
+import Profile from "./Pages/Profile";
+import Books from "./Pages/Books";
+import ProductDetails from "./Pages/ProductDetails";
+import Cart from "./Pages/Cart";
+import Favorites from "./Pages/Favorites";
+import CheckOut from "./Pages/CheckOut";
+import Orders from "./Pages/Orders";
 
 const App = () => {
   return (
@@ -29,6 +37,14 @@ const App = () => {
           {/* layout for main page after login */}
           <Route path="/" element={<HomeLayout />}>
             <Route index element={<MainHome />} />
+            <Route path="about" element={<About />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="books" element={<Books />} />
+            <Route path="product" element={<ProductDetails />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="favorites" element={<Favorites />} />
+            <Route path="checkout" element={<CheckOut />} />
+            <Route path="orders" element={<Orders />} />
           </Route>
         </Routes>
       </BrowserRouter>

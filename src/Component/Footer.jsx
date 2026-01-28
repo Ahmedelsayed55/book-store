@@ -13,13 +13,19 @@ const Footer = () => {
             <img src={bockMarck} alt="" />
             <p className="">Bookshop</p>
           </NavLink>
-          <NavLink className=" font-bold " to={"/"}>
+          <NavLink   className={({ isActive }) =>
+          `font-bold ${isActive ? "text-[#EAA451]" : "text-white"}`
+        } to={"/"}>
             Home
           </NavLink>
-          <NavLink className=" font-bold " to={"/books"}>
+          <NavLink   className={({ isActive }) =>
+          `font-bold ${isActive ? "text-[#EAA451]" : "text-white"}`
+        } to={"/books"}>
             Books
           </NavLink>
-          <NavLink className="font-bold  " to={"/about"}>
+          <NavLink   className={({ isActive }) =>
+          `font-bold ${isActive ? "text-[#EAA451]" : "text-white"}`
+        } to={"/about"}>
             About us
           </NavLink>
         </nav>
