@@ -17,7 +17,7 @@ const MainNavbar = () => {
   }, []);
 
   return (
-    <div className="w-full relative bg-white/20 py-6">
+    <div className="w-full fixed top-0 z-50 bg-white/20 py-6">
       <div className="container mx-auto  flex justify-between items-center">
         <LinkForNav />
         <div className="flex gap-5 items-center">
@@ -55,7 +55,7 @@ const MainNavbar = () => {
           <div className="flex gap-5">
             <img src={userImg} alt="" />
             <div
-              className="relative text-white cursor-pointer flex items-center gap-6"
+              className="relative z-50 text-white cursor-pointer flex items-center gap-6"
               onClick={() => {
                 setShowInfo(!showInfo)
               }}

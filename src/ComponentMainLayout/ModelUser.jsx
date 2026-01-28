@@ -11,22 +11,22 @@ const ModelUser = () => {
   localStorage.removeItem("userInfo");
   localStorage.removeItem("token");
 
-  navigate("/home/login");
+  navigate("/login");
 };
   return (
     <div className='w-full md:w-70 absolute top-20 text-black left-1/2 -translate-x-1/2  '>
         <h3 className='text-[14px] py-2'>Profile</h3>
         <div className='w-full bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4'>
-            <Link className='w-full flex items-center gap-3 p-4 rounded duration-300 hover:bg-gray-200 ' to={"profile"}>
+            <Link className='w-full flex items-center gap-3 p-4 rounded duration-300 hover:bg-gray-200 ' to={"/profile"}>
               <CiUser />  Profile
             </Link>
-            <Link className='w-full flex items-center gap-3 p-4 rounded duration-300 hover:bg-gray-200 ' to={"order"}>
+            <Link className='w-full flex items-center gap-3 p-4 rounded duration-300 hover:bg-gray-200 ' to={"/info/order"}>
               <IoTimeOutline />  Order History
             </Link>
-            <Link className='w-full flex items-center gap-3 p-4 rounded duration-300 hover:bg-gray-200 ' to={"profile"}>
+            <Link className='w-full flex items-center gap-3 p-4 rounded duration-300 hover:bg-gray-200 ' to={"/about"}>
               <IoLocationOutline />  Address
             </Link>
-            <Link className='w-full flex items-center gap-3 p-4 rounded duration-300 hover:bg-gray-200 ' to={"help"}>
+            <Link className='w-full flex items-center gap-3 p-4 rounded duration-300 hover:bg-gray-200 ' to={"/help"}>
               <AiOutlineExclamationCircle />  Help
             </Link>
             <p className='w-full flex items-center gap-3 p-4 rounded duration-300 hover:bg-gray-200 ' onClick={handleLogout} >

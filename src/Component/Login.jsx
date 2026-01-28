@@ -72,7 +72,7 @@ const Login = () => {
               <input type="checkbox" />
               Remember me
             </label>
-            <Link to={"/home/forget"} className="text-[#D9176C]">
+            <Link to={"/login/forget"} className="text-[#D9176C]">
               Forget Password ?
             </Link>
           </div>
@@ -86,7 +86,7 @@ const Login = () => {
           <div className="flex flex-col gap-10  w-full">
             <p className="text-center">
               don't have an account{" "}
-              <Link to={"/home/register"} className="text-[#D9176C]">
+              <Link to={"/login/register"} className="text-[#D9176C]">
                 Sign Up
               </Link>{" "}
             </p>

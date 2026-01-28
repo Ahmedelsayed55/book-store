@@ -12,7 +12,7 @@ const ForgetPassword = () => {
     axios.post(domain + "/forget-password", values).then((res)=>{
       console.log(res)
       toast.success('Successfully')
-      navigate('/home/reset')
+      navigate('/login/reset')
     }).catch((err)=>{
       toast.error(err.response?.data.errors.email[0])
               console.log("STATUS:", err.response?.status);

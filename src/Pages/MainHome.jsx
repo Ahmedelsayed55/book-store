@@ -1,9 +1,11 @@
 import React from 'react'
+import Hero from '../HomeComponent/Hero'
 
 const MainHome = () => {
   return (
-    <div className='h-screen flex items-center justify-center text-6xl text-indigo-600'>
-       شغلك تمام يامعلم
+    <div className='flex flex-col'>
+      <Hero/>
+   
     </div>
   )
 }

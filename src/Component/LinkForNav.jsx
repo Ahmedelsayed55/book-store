@@ -18,7 +18,7 @@ const LinkForNav = () => {
       </NavLink>
       <NavLink   className={({ isActive }) =>
           `font-bold ${isActive ? "text-[#EAA451]" : "text-white"}`
-        } to={"/books"}>
+        } to={"/info/books"}>
         Books
       </NavLink>
       <NavLink   className={({ isActive }) =>
