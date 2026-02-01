@@ -6,7 +6,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import imgFlash from "../assets/hero2.png";
 import { BsCart3 } from "react-icons/bs";
 
-const FlashSales = ({flashSales}) => {
+const FlashSales = ({ flashSales }) => {
   const books = [1, 2, 3, 4];
   return (
     <div className="bg-[#F6F2F8] py-32">
@@ -89,10 +89,20 @@ const FlashSales = ({flashSales}) => {
             ))}
           </Swiper>
 
-          <button className="flash-prev absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center">
+          <button
+            className="flash-prev absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg shadow-gray-400 text-gray-600 flex items-center justify-center    [&.swiper-button-disabled]:bg-gray-200
+    [&.swiper-button-disabled]:text-gray-400
+    [&.swiper-button-disabled]:cursor-not-allowed
+    [&.swiper-button-disabled]:shadow-none"
+          >
             <FaAngleLeft />
           </button>
-          <button className="flash-next absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow flex items-center justify-center">
+          <button
+            className="flash-next absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg shadow-gray-400 text-gray-600 flex items-center justify-center    [&.swiper-button-disabled]:bg-gray-200
+    [&.swiper-button-disabled]:text-gray-400
+    [&.swiper-button-disabled]:cursor-not-allowed
+    [&.swiper-button-disabled]:shadow-none"
+          >
             <FaAngleRight />
           </button>
         </div>
