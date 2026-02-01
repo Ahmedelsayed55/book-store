@@ -6,7 +6,7 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import imgFlash from "../assets/hero2.png";
 import { BsCart3 } from "react-icons/bs";
 
-const FlashSales = () => {
+const FlashSales = ({flashSales}) => {
   const books = [1, 2, 3, 4];
   return (
     <div className="bg-[#F6F2F8] py-32">
