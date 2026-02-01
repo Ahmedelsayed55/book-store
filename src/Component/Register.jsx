@@ -4,7 +4,7 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineFacebook } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import { domain } from "../Store";
+import { domain} from "../Store";
 import * as Yup from "yup";
 const Register = () => {
   const navigate = useNavigate();
@@ -40,6 +40,7 @@ const Register = () => {
       .oneOf([Yup.ref("password"), null], "Passwords must match")
       .required("Confirm your password"),
   });
+
 
   return (
     <div className=" py-16">

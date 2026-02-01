@@ -1,13 +1,29 @@
-import React from 'react'
-import Hero from '../HomeComponent/Hero'
+import React, { useEffect, useState } from "react";
+import Hero from "../HomeComponent/Hero";
+import Services from "../AboutComponent/Services";
+import BestSeller from "../HomeComponent/BestSeller";
+import axios from "axios";
+import { domain } from "../Store";
+import Recommended from "../HomeComponent/Recommended";
 
 const MainHome = () => {
+  const [bestSeller, setBestSeller] = useState([]);
+  const [recommended, setRecommended] = useState([]);
+  useEffect(() => {
+    axios.get(domain + "/home").then((res) => {
+      // console.log(res.data.data);
+      setBestSeller(res.data.data.best_selling_image);
+      setRecommended(res.data.data.recommended);
+    });
+  }, []);
   return (
-    <div className='flex flex-col'>
-      <Hero/>
-   
+    <div className="flex flex-col">
+      <Hero />
+      <Services />
+      <BestSeller bestSeller={bestSeller} />
+      <Recommended recommended={recommended} />
     </div>
-  )
-}
+  );
+};
 
-export default MainHome
+export default MainHome;

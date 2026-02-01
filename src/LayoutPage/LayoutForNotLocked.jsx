@@ -1,13 +1,13 @@
-import React from 'react'
-import LogNavBar from '../Component/LogNavBar'
+
 import { Outlet } from 'react-router-dom'
 import Footer from '../Component/Footer'
+import MainNavbar from '../ComponentMainLayout/MainNavbar'
 
 const LayoutForNotLocked = () => {
   return (
     <div>
       <header  className={`bg-[url('/navbarimg.png')] h-64 `}> 
-        <LogNavBar/>
+        <MainNavbar/>
       </header>
       <main className='bg-[#F5F5F5]'>
         <Outlet/>

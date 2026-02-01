@@ -1,31 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { GrFavorite } from "react-icons/gr";
 import { BsCart3 } from "react-icons/bs";
 import userImg from "../assets/userimg.png";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import LinkForNav from "../Component/LinkForNav";
 import ModelUser from "./ModelUser";
 const MainNavbar = () => {
+  const navigate = useNavigate()
+  const token =
+    localStorage.getItem("token") || sessionStorage.getItem("token");
   const [showInfo, setShowInfo] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("userInfo"));
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setUserInfo(storedUser);
-    console.log(storedUser);
+    // console.log(storedUser);
   }, []);
 
   return (
-    <div className="w-full fixed top-0 z-50 bg-white/20 py-6">
+    <div className="w-full absolute top-0 z-50 bg-white/20 py-6">
       <div className="container mx-auto  flex justify-between items-center">
         <LinkForNav />
+        {
+          token ? (
+
         <div className="flex gap-5 items-center">
           <div className="flex gap-5">
             <NavLink
-                     className={({ isActive }) =>
-          `font-bold relative text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
-        }
+              className={({ isActive }) =>
+                `font-bold relative text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
+              }
               to={"favorites"}
             >
               <GrFavorite />
@@ -38,9 +44,8 @@ const MainNavbar = () => {
             </NavLink>
             <NavLink
               className={({ isActive }) =>
-          `font-bold relative text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
-        }
-           
+                `font-bold relative text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
+              }
               to={"cart"}
             >
               <BsCart3 />
@@ -52,12 +57,13 @@ const MainNavbar = () => {
               </span>
             </NavLink>
           </div>
+
           <div className="flex gap-5">
             <img src={userImg} alt="" />
             <div
               className="relative z-50 text-white cursor-pointer flex items-center gap-6"
               onClick={() => {
-                setShowInfo(!showInfo)
+                setShowInfo(!showInfo);
               }}
             >
               <div>
@@ -68,14 +74,19 @@ const MainNavbar = () => {
                   {userInfo?.email}
                 </p>
               </div>
-              {showInfo ? <FaChevronDown /> : <div></div>}
-              {showInfo && <ModelUser/> }
+              {showInfo ? <FaChevronUp /> : <FaChevronDown />}
+              {showInfo && <ModelUser />}
             </div>
           </div>
         </div>
+          ):(
+                    <div className='flex gap-5'>
+          <button onClick={()=>navigate('/login')} className='bg-[#D9176C] rounded cursor-pointer text-white px-4 py-3'>Log in</button>
+          <button onClick={()=>navigate('/login/register')} className='bg-white rounded cursor-pointer text-[#D9176C] px-4 py-3'>Sign Up</button>
+        </div>
+          )
+        }
       </div>
-       
-    
     </div>
   );
 };

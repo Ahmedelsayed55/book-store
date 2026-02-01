@@ -4,19 +4,21 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineFacebook } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import { domain } from "../Store";
+import { domain} from "../Store";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
 const Login = () => {
   const navigate = useNavigate();
   const handelLogin = (values) => {
+    const {email, password,rememberMe} = values;
     axios
-      .post(domain + "/login", values)
+      .post(domain + "/login", {email, password})
       .then((res) => {
         toast.success("Log in is Successfully");
+        const storage = rememberMe ? localStorage : sessionStorage ;
+        storage.setItem("userInfo", JSON.stringify(res.data.data.user))
+        storage.setItem("token",res.data.data.token)
         navigate("/");
-        localStorage.setItem("userInfo", JSON.stringify(res.data.data.user))
-        localStorage.setItem("token",res.data.data.token)
       })
       .catch((err) => {
         console.log("STATUS:", err.response?.status);
@@ -31,12 +33,13 @@ const Login = () => {
       .min(6, "Password must be at least 6 characters")
       .required("Password is required"),
   });
+
   return (
     <div className=" py-16">
       <h1 className="text-center py-10 text-[#D9176C]">Welcome Back!</h1>
       <Formik
         validationSchema={loginSchema}
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ email: "", password: "", rememberMe:""}}
         onSubmit={(values) => {
           handelLogin(values);
         }}
@@ -69,7 +72,7 @@ const Login = () => {
           />
           <div className="w-full flex justify-between">
             <label className="flex gap-3 cursor-pointer">
-              <input type="checkbox" />
+              <Field name="rememberMe" type="checkbox" />
               Remember me
             </label>
             <Link to={"/login/forget"} className="text-[#D9176C]">

@@ -6,7 +6,7 @@ import Register from "./Component/Register";
 import ForgetPassword from "./Component/ForgetPassword";
 import ResetPassword from "./Component/ResetPassword";
 import CreateNewPassword from "./Component/CreateNewPassword";
-import Home from "./Pages/Home";
+
 import { Toaster } from "react-hot-toast";
 import HomeLayout from "./LayoutPage/HomeLayout";
 import MainHome from "./Pages/MainHome";
@@ -40,7 +40,6 @@ const App = () => {
             <Route index element={<MainHome />} />
           </Route>
           {/*  */}
-          <Route path="/home" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="profile" element={<Profile />} />
           {/*  */}

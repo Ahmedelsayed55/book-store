@@ -1,9 +1,11 @@
-import React from 'react'
+
 import MainNavbar from '../ComponentMainLayout/MainNavbar'
 import { Outlet } from 'react-router-dom'
 import Footer from '../Component/Footer'
+import {useCheckToken } from '../Store'
 
 const OtherLayout = () => {
+ useCheckToken()
   return (
     <div>
       <header  className={`bg-[url('/navbarimg.png')] h-52 `}> 
