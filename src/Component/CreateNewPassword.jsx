@@ -3,15 +3,23 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup"; // ضروري جداً
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // ضروري جداً
+import { domain } from "../Store";
 
 const CreateNewPassword = () => {
   const navigate = useNavigate();
-  const domain = "https://your-api-domain.com"; // تأكد من تعريف الدومين
 
   const handleResetPassword = (values) => {
+    const info = JSON.parse(localStorage.getItem("userInfo"));
+    const email = info.email;
+    const data = {
+      email: email,
+      password: values.password,
+      password_confirmation: values.password_confirmation,
+      otp: "12345",
+    };
     console.log(values);
     axios
-      .post(domain + "/reset-password", values) // غير المسار حسب الـ API الخاص بك
+      .post(domain + "/reset-password", data)
       .then((res) => {
         localStorage.setItem("userInfo", JSON.stringify(res.data.data.user));
         localStorage.setItem("token", res.data.data.token);
@@ -35,8 +43,12 @@ const CreateNewPassword = () => {
   return (
     <div className="min-h-[70vh] items-center justify-center flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <h2 className="text-[#D9176C] text-center text-[16px]">Create new password!</h2>
-        <p className="text-[#22222280] text-center text-[14px]">Create a strong password</p>
+        <h2 className="text-[#D9176C] text-center text-[16px]">
+          Create new password!
+        </h2>
+        <p className="text-[#22222280] text-center text-[14px]">
+          Create a strong password
+        </p>
         <p className="text-[#22222280] text-center text-[14px]">
           Your new password must be different from previous one
         </p>
