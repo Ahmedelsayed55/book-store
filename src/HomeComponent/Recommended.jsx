@@ -4,18 +4,18 @@ import star from "../assets/star.png";
 import { BsCart3 } from "react-icons/bs";
 import { GrFavorite } from "react-icons/gr";
 const Recommended = ({ recommended }) => {
-  console.log(recommended);
+
   return (
     <div className="w-full bg-[#F5F5F5] py-10 md:py-28">
       <div className="max-w-[1320px] mx-auto ">
         <h1 className="text-[#222222] text-[26px] mb-2 md:mb-10 font-bold">Recommended For You</h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl: gap-6">
 
        
         {recommended.map((data) => (
           <div
             key={data.bookId}
-            className="flex gap-10 bg-white shadow p-10"
+            className="flex flex-col lg:flex-row gap-10 bg-white shadow p-5 xl:p-10"
           >
             <div className="w-full md:w-66 h-auto md:h-66">
               <img className="w-full h-full" src={img} alt="" />
@@ -40,7 +40,7 @@ const Recommended = ({ recommended }) => {
                 <h3 className="text-[#222222] text-2xl font-semibold">{data.final_price}</h3>
               </div>
               <div className="w-full flex gap-4">
-                <button className="cursor-pointer hover:bg-white hover:text-[#D9176C] border border-[#D9176C] text-[16px] py-3.5 px-21 flex gap-2 items-center bg-[#D9176C] text-white rounded-2xl"> Add to Cart <BsCart3 /></button>
+                <button className="cursor-pointer hover:bg-white hover:text-[#D9176C] border border-[#D9176C] text-[16px] py-3.5 px-3 md:px-10 xl:px-21 flex gap-2 items-center bg-[#D9176C] text-white rounded-2xl"> Add to Cart <BsCart3 /></button>
                 <button className="cursor-pointer hover:bg-[#D9176C] hover:text-white text-2xl text-[#D9176C] border border-[#D9176C] hover:border-[#d6d6d6] p-3.5 rounded-md "><GrFavorite /></button>
               </div>
             </div>
