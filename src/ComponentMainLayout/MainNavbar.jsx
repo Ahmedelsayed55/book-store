@@ -32,7 +32,7 @@ const MainNavbar = () => {
               className={({ isActive }) =>
                 `font-bold relative text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
               }
-              to={"favorites"}
+              to={"/info/favorites"}
             >
               <GrFavorite />
               <span
@@ -46,7 +46,7 @@ const MainNavbar = () => {
               className={({ isActive }) =>
                 `font-bold relative text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
               }
-              to={"cart"}
+              to={"/info/cart"}
             >
               <BsCart3 />
               <span
