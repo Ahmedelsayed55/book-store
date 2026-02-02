@@ -9,14 +9,12 @@ import * as Yup from "yup";
 const Register = () => {
   const navigate = useNavigate();
   const handelRegister = (values) => {
-    console.log(values);
     axios
       .post(domain + "/register", values)
       .then((res) => {
+        console.log(res.data)
 
-        navigate("/");
-        localStorage.setItem("userInfo", JSON.stringify(res.data.data.user));
-        localStorage.setItem("token", res.data.data.token);
+        navigate("/login");
       })
       .catch((err) => {
         console.log("STATUS:", err.response?.status);

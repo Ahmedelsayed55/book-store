@@ -8,7 +8,7 @@ const OtherLayout = () => {
  useCheckToken()
   return (
     <div>
-      <header  className={`bg-[url('/navbarimg.png')] h-52 `}> 
+      <header  className={`bg-[url('/navbarimg.png')] h-34 `}> 
         <MainNavbar/>
       </header>
       <main className='bg-[#F5F5F5]'>

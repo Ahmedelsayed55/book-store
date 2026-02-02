@@ -13,7 +13,7 @@ const MainHome = () => {
   const [flashSales, setFlashSales]= useState([])
   useEffect(() => {
     axios.get(domain + "/home").then((res) => {
-      console.log(res.data.data);
+      // console.log(res.data.data);
       setFlashSales(res.data.data.flashSales)
       setBestSeller(res.data.data.best_selling_image);
       setRecommended(res.data.data.recommended);
