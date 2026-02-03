@@ -2,14 +2,27 @@ import { Disclosure } from "@headlessui/react";
 import { LuSettings2 } from "react-icons/lu";
 import { IoChevronDownOutline } from "react-icons/io5";
 
-const SideFilter = ({ categories }) => {
+const SideFilter = ({ categories, selectedCategories, onChange }) => {
+  
+  const handleCheckbox = (categoryName) => {
+    if (selectedCategories.includes(categoryName)) {
+      // remove
+      onChange(selectedCategories.filter(cat => cat !== categoryName))
+    } else {
+      // add
+      onChange([...selectedCategories, categoryName])
+    }
+  }
+
+  const handleAll = () => {
+    onChange([])
+  }
   return (
     <div className="w-full lg:w-74 border-r border-gray-300 p-4 flex flex-col gap-7 pt-16">
       <h2 className="text-[#222222] text-2xl flex gap-3 items-center">
         <LuSettings2 />
         Filter
       </h2>
-      {/* Categories */}
       {/* Categories */}
       <Disclosure defaultOpen>
         {({ open }) => (
@@ -25,6 +38,8 @@ const SideFilter = ({ categories }) => {
               <div className="w-full flex justify-between items-center">
                 <label className="flex gap-3 text-[#222222] text-[14px] cursor-pointer">
                   <input
+                    checked={selectedCategories.length === 0}
+                    onChange={handleAll}
                     type="checkbox"
                     className="w-4 h-4 border border-gray-700 accent-gray-800"
                   />
@@ -40,6 +55,8 @@ const SideFilter = ({ categories }) => {
                 >
                   <label className="flex gap-3 text-[#222222] text-[14px] cursor-pointer">
                     <input
+                      checked={selectedCategories.includes(cat.name)}
+                      onChange={() => handleCheckbox(cat.name)}
                       type="checkbox"
                       className="w-4 h-4 border border-gray-700 accent-gray-800"
                     />

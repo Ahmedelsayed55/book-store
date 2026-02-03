@@ -46,7 +46,7 @@ const App = () => {
           {/* Other layout info */}
           <Route path="/info" element={<OtherLayout />}>
             <Route path="books" element={<Books />} />
-            <Route path="product" element={<ProductDetails />} />
+            <Route path="books/:id" element={<ProductDetails />} />
             <Route path="cart" element={<Cart />} />
             <Route path="favorites" element={<Favorites />} />
             <Route path="checkout" element={<CheckOut />} />

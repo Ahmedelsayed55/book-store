@@ -1,3 +1,27 @@
 @import "tailwindcss";
 
 
+/* كامل الموقع */
+::-webkit-scrollbar {
+  width: 8px; /* سماكة السكрол */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* خلفية المسار */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #D9176C; /* لون السكрол */
+  border-radius: 999px; /* يخلي السكрол دائري وحاد */
+  border: 2px solid transparent; /* لتباعد داخلي نظيف */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #B30F59; /* لون عند المرور */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin; /* رفيع جدًا */
+  scrollbar-color: #D9176C transparent; /* thumb / track */
+}
