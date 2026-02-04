@@ -4,8 +4,10 @@ import { GrFavorite } from "react-icons/gr";
 import { BsCart3 } from "react-icons/bs";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { products } from './../Data/Data';
 
-const BooksProducts = ({ category, categories, products }) => {
+const BooksProducts = ({ category, categories }) => {
+  
   // --- فلترة المنتجات حسب الزرار + سايد فلتر ---
   const filteredProducts = products.filter((cat) => {
     const byButton = category ? cat.category === category : false;
