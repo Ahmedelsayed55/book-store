@@ -18,7 +18,9 @@ const UserForm = ({ userInfo, token }) => {
         toast.success("Updated");
       })
       .catch((err) => {
-        console.log(err);
+        console.log("STATUS:", err.response?.status);
+        console.log("ERROR DATA:", err.response?.data.message);
+        toast.error("Failed to update please try again");
       });
   };
   const registerSchema = Yup.object({
@@ -52,7 +54,9 @@ const UserForm = ({ userInfo, token }) => {
       >
         <Form className="flex flex-col items-center gap-5">
           <div className="w-full md:w-169 flex flex-col gap-5 bg-white rounded shadow p-10">
-            <h1 className="text-center text-[20px] pb-3 ">General information</h1>
+            <h1 className="text-center text-[20px] pb-3 ">
+              General information
+            </h1>
             <div className="flex flex-col md:flex-row gap-5">
               <div className="flex flex-col">
                 <label className="flex flex-col gap-2 text-gray-600">
