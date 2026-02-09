@@ -4,7 +4,7 @@ import { BiPhoneCall } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineMessage } from "react-icons/md";
 import * as Yup from "yup";
-import { domain } from "../Store";
+import { domain } from "../store/Store";
 
 const Contact = () => {
   const token =

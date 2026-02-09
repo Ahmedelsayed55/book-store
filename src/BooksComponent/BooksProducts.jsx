@@ -5,10 +5,12 @@ import { BsCart3 } from "react-icons/bs";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { products } from './../Data/Data';
+import { useCartStore } from "../store/CartStore";
 
 const BooksProducts = ({ category, categories }) => {
-  
-  // --- فلترة المنتجات حسب الزرار + سايد فلتر ---
+  const {addToCart, cartItems}= useCartStore();
+  console.log(cartItems)
+
   const filteredProducts = products.filter((cat) => {
     const byButton = category ? cat.category === category : false;
     const bySide = categories.length > 0 ? categories.includes(cat.category) : false;
@@ -75,8 +77,10 @@ const BooksProducts = ({ category, categories }) => {
                     Year <span className="text-[#222222]">{data.year}</span>
                   </p>
                 </div>
-                <div className="flex gap-5">
-                  <button className="cursor-pointer hover:bg-white hover:text-[#D9176C] border border-[#D9176C] text-[16px] py-3.5 px-3 md:px-10 xl:px-21 flex gap-2 items-center bg-[#D9176C] text-white rounded-2xl">
+                <div onClick={(e)=>e.stopPropagation()} className="flex gap-5">
+                  <button
+                  onClick={()=> addToCart(data)}
+                  className="cursor-pointer hover:bg-white hover:text-[#D9176C] border border-[#D9176C] text-[16px] py-3.5 px-3 md:px-10 xl:px-21 flex gap-2 items-center bg-[#D9176C] text-white rounded-2xl">
                     Add to Cart <BsCart3 />
                   </button>
                   <button className="cursor-pointer hover:bg-[#D9176C] hover:text-white text-2xl text-[#D9176C] border border-[#D9176C] hover:border-[#d6d6d6] p-3.5 rounded-md">

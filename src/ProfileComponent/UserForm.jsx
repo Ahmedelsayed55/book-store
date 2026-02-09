@@ -2,7 +2,7 @@ import axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import * as Yup from "yup";
-import { domain } from "../Store";
+import { domain } from "../store/Store";
 import toast from "react-hot-toast";
 const UserForm = ({ userInfo, token }) => {
   const handelUpdateInfo = (values) => {

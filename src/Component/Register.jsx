@@ -4,7 +4,7 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineFacebook } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-import { domain} from "../Store";
+import { domain} from "../store/Store";
 import * as Yup from "yup";
 const Register = () => {
   const navigate = useNavigate();

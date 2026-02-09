@@ -3,7 +3,7 @@ import Hero from "../HomeComponent/Hero";
 import Services from "../AboutComponent/Services";
 import BestSeller from "../HomeComponent/BestSeller";
 import axios from "axios";
-import { domain } from "../Store";
+import { domain } from "../store/Store";
 import Recommended from "../HomeComponent/Recommended";
 import FlashSales from "../HomeComponent/FlashSales";
 

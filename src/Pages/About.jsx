@@ -4,7 +4,7 @@ import OurMission from "../AboutComponent/OurMission";
 import Services from "../AboutComponent/Services";
 import Footer from "../Component/Footer";
 import MainNavbar from "../ComponentMainLayout/MainNavbar";
-import { useCheckToken } from "../Store";
+import { useCheckToken } from "../store/Store";
 
 const About = () => {
   useCheckToken();

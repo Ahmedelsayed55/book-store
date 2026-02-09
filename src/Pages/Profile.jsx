@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react'
-import { domain, useCheckToken } from '../Store'
+import { domain, useCheckToken } from '../store/Store'
 import axios from 'axios'
 import MainNavbar from '../ComponentMainLayout/MainNavbar'
 import Footer from '../Component/Footer'

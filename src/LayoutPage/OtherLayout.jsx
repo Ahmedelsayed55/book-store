@@ -2,7 +2,7 @@
 import MainNavbar from '../ComponentMainLayout/MainNavbar'
 import { Outlet } from 'react-router-dom'
 import Footer from '../Component/Footer'
-import {useCheckToken } from '../Store'
+import {useCheckToken } from '../store/Store'
 
 const OtherLayout = () => {
  useCheckToken()

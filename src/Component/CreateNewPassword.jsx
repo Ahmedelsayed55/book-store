@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup"; // ضروري جداً
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // ضروري جداً
-import { domain } from "../Store";
+import { domain } from "../store/Store";
 
 const CreateNewPassword = () => {
   const navigate = useNavigate();
