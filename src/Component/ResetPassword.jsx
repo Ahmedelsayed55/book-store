@@ -23,8 +23,9 @@ const ResetPassword = () => {
         </p>
       </div>
       <div className="flex gap-3">
-        {[0, 1, 2, 3].map(() => (
+        {[0, 1, 2, 3].map((_,i) => (
           <input
+            key={i}
             maxLength={1}
             onInput={handleInput}
             onKeyDown={handleKeyDown}
