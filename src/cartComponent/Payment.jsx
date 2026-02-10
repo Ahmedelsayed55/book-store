@@ -41,7 +41,7 @@ const Payment = () => {
           <div className="flex flex-col gap-6">
             <div className="flex justify-between ">
               <span className="text-[20px] text-[#22222280]">Subtotal</span>
-              <span className="font-medium text-[24px] text-[#222222]">${total.toFixed(2)}</span>
+              <span className="font-medium text-[24px] text-[#222222]">${total?.toFixed(2)}</span>
             </div>
 
             <div className="flex justify-between">
@@ -57,7 +57,7 @@ const Payment = () => {
             <div className="border-t border-[#22222233] pt-4 flex justify-between items-center">
               <span className="text-[20px] text-[#22222280]">Total</span>
               <span className="text-[28px] font-bold text-[#D9176C]">
-                ${(total + 4).toFixed(2)}
+                ${(total + 4)?.toFixed(2)}
               </span>
             </div>
 
