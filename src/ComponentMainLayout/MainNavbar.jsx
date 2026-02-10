@@ -6,7 +6,9 @@ import userImg from "../assets/userimg.png";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import LinkForNav from "../Component/LinkForNav";
 import ModelUser from "./ModelUser";
+import { useCartStore } from "../store/CartStore";
 const MainNavbar = () => {
+  const {cartItems}= useCartStore();
   const navigate = useNavigate()
   const token =
     localStorage.getItem("token") || sessionStorage.getItem("token");
@@ -53,7 +55,7 @@ const MainNavbar = () => {
                 className="absolute text-[10px] p-0.5 border border-white
                      text-white bg-[#D9176C] rounded-full -top-1.5 -right-1.5"
               >
-                12
+                {cartItems.length}
               </span>
             </NavLink>
           </div>

@@ -6,10 +6,12 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { products } from './../Data/Data';
 import { useCartStore } from "../store/CartStore";
+import { useFavoritesStore } from "../store/FavoritesStore";
 
 const BooksProducts = ({ category, categories }) => {
-  const {addToCart, cartItems}= useCartStore();
-  console.log(cartItems)
+  const {addToCart}= useCartStore();
+  const {addToFavorites}= useFavoritesStore();
+  // console.log(cartItems)
 
   const filteredProducts = products.filter((cat) => {
     const byButton = category ? cat.category === category : false;
@@ -83,7 +85,7 @@ const BooksProducts = ({ category, categories }) => {
                   className="cursor-pointer hover:bg-white hover:text-[#D9176C] border border-[#D9176C] text-[16px] py-3.5 px-3 md:px-10 xl:px-21 flex gap-2 items-center bg-[#D9176C] text-white rounded-2xl">
                     Add to Cart <BsCart3 />
                   </button>
-                  <button className="cursor-pointer hover:bg-[#D9176C] hover:text-white text-2xl text-[#D9176C] border border-[#D9176C] hover:border-[#d6d6d6] p-3.5 rounded-md">
+                  <button onClick={()=> addToFavorites(data)} className="cursor-pointer hover:bg-[#D9176C] hover:text-white text-2xl text-[#D9176C] border border-[#D9176C] hover:border-[#d6d6d6] p-3.5 rounded-md">
                     <GrFavorite />
                   </button>
                 </div>

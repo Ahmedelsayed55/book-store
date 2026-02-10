@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import SideFilter from "../BooksComponent/SideFilter";
 import Search from "../BooksComponent/Search";
 import Categories from "../BooksComponent/Categories";
 import BooksProducts from "../BooksComponent/BooksProducts";
+// import axios from "axios";
+// import { domain } from "../store/Store";
 const Books = () => {
-  const categories = [
+  const categories =  [
     { name: "Business" },
     { name: "Kids" },
     { name: "Art" },
@@ -14,9 +16,22 @@ const Books = () => {
     { name: "Self Help" },
     { name: "Cooking" },
     { name: "Sports" },
-  ];
+  ]
+  // const [books, setBooks] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
+  // useEffect(() => {
+  //   axios
+  //     .get(domain + "/book")
+  //     .then((res) => {
+  //         console.log(res.data.data);
+  //       // setBooks(res.data.data.Books);
+  //       // setBooks(res.data.data.categories);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
   return (
     <div className="flex justify-center text-black ">
       <div className="container flex flex-col lg:flex-row gap-10 ">
@@ -37,6 +52,7 @@ const Books = () => {
             onSelect={setSelectedCategory}
           />
           <BooksProducts
+            // books={books}
             category={selectedCategory}
             categories={selectedCategories}
           />

@@ -3,13 +3,13 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 
-export const useCartStore =  create(
+export const useFavoritesStore =  create(
     persist((set)=>({
-    cartItems: [],
+    favoritesItems: [],
     total: 0 ,
-    clearCart:()=> set({cartItems:[], total:0}),
-    addToCart:(book)=>set((state)=>{
-        let books = [...state.cartItems];
+    clearFavorites:()=> set({favoritesItems:[], total:0}),
+    addToFavorites:(book)=>set((state)=>{
+        let books = [...state.favoritesItems];
         const bookIndex = books.findIndex((i)=>i.id === book.id);
         if (bookIndex !== -1) {
             books[bookIndex].qty += 1;
@@ -18,28 +18,28 @@ export const useCartStore =  create(
             );
         } else {
        books.push({...book, qty:1})
-         toast.success(`${book.title} added to cart`);
+         toast.success(`${book.title} added to favorites`);
         }
-        return {cartItems:books, total: books.reduce((sum, item) => sum + (item.price * item.qty), 0)}
+        return {favoritesItems:books, total: books.reduce((sum, item) => sum + (item.price * item.qty), 0)}
     }),
     removeBook:(book)=>set((state)=>{
-        let books = [...state.cartItems];
+        let books = [...state.favoritesItems];
         let bookIndex = books.findIndex((i)=> i.id === book.id);
         books.splice(bookIndex, 1);
-        toast.success(`${book.title} removed from cart`);
-        return {cartItems:books, total: books.reduce((sum, item) => sum + (item.price * item.qty), 0)}
+        toast.success(`${book.title} removed from favorites`);
+        return {favoritesItems:books, total: books.reduce((sum, item) => sum + (item.price * item.qty), 0)}
     }),
     incrementQty:(book)=> set((state)=>{
-        let books = [...state.cartItems];
+        let books = [...state.favoritesItems];
         let bookIndex = books.findIndex((i)=> i.id === book.id);
         books[bookIndex].qty += 1;
         toast.success(
           `${books[bookIndex].title} Quantity Changed to :` + books[bookIndex].qty
         );
-        return {cartItems:books, total: books.reduce((sum, item) => sum + (item.price * item.qty), 0)}
+        return {favoritesItems:books, total: books.reduce((sum, item) => sum + (item.price * item.qty), 0)}
     }),
     decrementQty:(book)=> set((state)=>{
-        let books = [...state.cartItems];
+        let books = [...state.favoritesItems];
         let bookIndex = books.findIndex((i)=> i.id === book.id);
         if (books[bookIndex].qty > 1) {
             books[bookIndex].qty -= 1;
@@ -48,15 +48,15 @@ export const useCartStore =  create(
             );
         } else {
             books.splice(bookIndex, 1);
-            toast.success(`${book.title} removed from cart`);
+            toast.success(`${book.title} removed from favorites`);
         }   
-        return {cartItems:books, total: books.reduce((sum, item) => sum + (item.price * item.qty), 0)}
+        return {favoritesItems:books, total: books.reduce((sum, item) => sum + (item.price * item.qty), 0)}
 
     }),
     
     }),
     {
-    name: "cart-storage",
+    name: "favorites-storage",
     }
 )
 )

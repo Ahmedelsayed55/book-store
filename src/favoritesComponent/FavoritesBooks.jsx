@@ -1,11 +1,10 @@
-import React from "react";
-import { useCartStore } from "../store/CartStore";
 import { TbTruckDelivery } from "react-icons/tb";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { FiMinusCircle, FiPlusCircle } from "react-icons/fi";
+import { useFavoritesStore } from "../store/FavoritesStore";
 
-const CartBooks = () => {
-  const { cartItems, decrementQty, incrementQty, removeBook } = useCartStore();
+const FavoritesBooks = () => {
+      const { favoritesItems, decrementQty, incrementQty, removeBook } = useFavoritesStore();
   return (
     <div className="w-full overflow-x-auto ">
       <div className="w-[900px] md:w-[1080px] lg:w-[1280px] xl:w-[1480px] mx-auto   ">
@@ -18,7 +17,7 @@ const CartBooks = () => {
         </div>
 
         <div className="flex flex-col gap-4">
-          {cartItems.map((item) => (
+          {favoritesItems.map((item) => (
             <div
               key={item.id}
               className="grid grid-cols-12 gap-4 items-center bg-white p-4 rounded-lg shadow-sm border border-gray-100 "
@@ -99,7 +98,7 @@ const CartBooks = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CartBooks;
+export default FavoritesBooks
