@@ -13,7 +13,7 @@ export const useCartStore = create(
           let books = [...state.cartItems];
           const bookIndex = books.findIndex((i) => i.id === book.id);
           if (bookIndex !== -1) {
-            books[bookIndex].qty += 1;
+            books[bookIndex].qty += 1;  
             toast.success(
               `${book.title} Quantity Changed to :` + books[bookIndex].qty,
             );

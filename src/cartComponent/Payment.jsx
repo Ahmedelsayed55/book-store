@@ -1,7 +1,9 @@
 import React from "react";
 import { useCartStore } from "../store/CartStore";
+import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
+  const Navigate = useNavigate();
   const { total } = useCartStore();
   return (
     <div className="w-full">
@@ -61,7 +63,7 @@ const Payment = () => {
               </span>
             </div>
 
-            <button className="mt-4 w-full py-3.25 border border-pink-600 bg-[#D9176C] cursor-pointer hover:bg-white hover:text-[#D9176C] active:scale-105 transition duration-300 text-white rounded-md text-[16px] font-medium">
+            <button onClick={()=> Navigate("/info/checkout")} className="mt-4 w-full py-3.25 border border-pink-600 bg-[#D9176C] cursor-pointer hover:bg-white hover:text-[#D9176C] active:scale-105 transition duration-300 text-white rounded-md text-[16px] font-medium">
               Check out
             </button>
 

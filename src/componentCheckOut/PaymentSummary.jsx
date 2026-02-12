@@ -1,0 +1,27 @@
+import React from 'react'
+
+const PaymentSummary = () => {
+  return (
+    <div className='flex flex-col gap-4 mt-10'>
+      <div className='flex items-center justify-between'>
+        <h3 className='text-[#22222280]'>Subtotal</h3>
+        <p className='text-[20px] text-[#222222]'>$1500</p>
+      </div>
+      <div className='flex items-center justify-between'>
+        <h3 className='text-[#22222280]'>Tax</h3>
+        <p className='text-[20px] text-[#222222]'>$4</p>
+      </div>
+      <div className='flex items-center justify-between'>
+        <h3 className='text-[#22222280]'>Shipping</h3>
+        <p className='text-[20px] text-[#22222280]'>$0</p>
+      </div>
+      <div className='flex items-center justify-between'>
+        <h3 className='text-[#22222280]'>Total (USD)</h3>
+        <p className='text-[20px] text-[#D9176C] font-semibold'>$1500</p>
+      </div>
+      <button className='mt-10 bg-[#D9176C] text-white px-6 py-3 rounded-md w-full border border-[#D9176C] hover:bg-white hover:text-[#D9176C] transition duration-200 cursor-pointer active:scale-105'>Confirm order</button>
+    </div>
+  )
+}
+
+export default PaymentSummary
