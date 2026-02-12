@@ -7,8 +7,10 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import LinkForNav from "../Component/LinkForNav";
 import ModelUser from "./ModelUser";
 import { useCartStore } from "../store/CartStore";
+import { useFavoritesStore } from "../store/FavoritesStore";
 const MainNavbar = () => {
   const { cartItems } = useCartStore();
+  const { favoritesItems } = useFavoritesStore();
   const navigate = useNavigate();
   const token =
     localStorage.getItem("token") || sessionStorage.getItem("token");
@@ -37,9 +39,9 @@ const MainNavbar = () => {
                 <GrFavorite />
                 <span
                   className="absolute text-[10px] p-0.5 border border-white
-                     text-white bg-[#D9176C] rounded-full -top-1.5 -right-1.5"
+                     text-white bg-[#D9176C] rounded-full min-w-4 flex items-center justify-center -top-1.5 -right-1.5"
                 >
-                  12
+                  {favoritesItems.length}
                 </span>
               </NavLink>
               <NavLink
@@ -51,7 +53,7 @@ const MainNavbar = () => {
                 <BsCart3 />
                 <span
                   className="absolute text-[10px] p-0.5 border border-white
-                     text-white bg-[#D9176C] rounded-full -top-1.5 -right-1.5"
+                     text-white bg-[#D9176C] rounded-full min-w-4 flex items-center justify-center -top-1.5 -right-1.5"
                 >
                   {cartItems.length}
                 </span>

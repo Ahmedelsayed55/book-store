@@ -185,6 +185,26 @@ export const products = [
     bookformat: "Printer",
     bestsellerrank: "#3",
   },
+  {
+    id: 10,
+    title: "Book 10 Sports",
+    category: "Sports",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo. Aliquam in justo varius, sagittis neque ut, malesuada leo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo. Aliquam in justo varius, sagittis neque ut, malesuada leo.",
+    review: 120,
+    rate: 4.5,
+    price: 29.99,
+    priceAfterDiscount: 19.99,
+    author: "Robert T. Kiyosaki",
+    year: 1997,
+    img: imgBook,
+    imgs: [imgBook, imgBook2, imgBook3],
+    pages: 250,
+    language: "English",
+    asin: "B000FC0Z9Q",
+    publisher: "Penguin Books",
+    bookformat: "Printer",
+    bestsellerrank: "#3",
+  },
 ];
 
 export const costumer = [

@@ -9,7 +9,7 @@ import DiscountCheckout from "../componentCheckOut/DiscountCheckout";
 const CheckOut = () => {
   return (
     <div className="w-full min-h-screen pt-7 lg:pt-15 pb-10 lg:pb-50.75">
-      <div className="container mx-auto flex gap-6 ">
+      <div className="container mx-auto flex flex-col lg:flex-row gap-6 ">
         {/* left side */}
         <div className="grow flex flex-col gap-6">
           <FormCheckout />

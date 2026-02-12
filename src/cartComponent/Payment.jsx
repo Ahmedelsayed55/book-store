@@ -1,10 +1,12 @@
 import React from "react";
 import { useCartStore } from "../store/CartStore";
 import { useNavigate } from "react-router-dom";
+import { useCheckoutStore } from "../store/Checkout";
 
 const Payment = () => {
   const Navigate = useNavigate();
-  const { total } = useCartStore();
+  const { total, cartItems } = useCartStore();
+  const { addToCheckout } = useCheckoutStore();
   return (
     <div className="w-full">
       <div className="max-w-370 mx-auto py-10 px-28 bg-[#3B2F4A1A] grid grid-cols-12 gap-8">
@@ -63,7 +65,7 @@ const Payment = () => {
               </span>
             </div>
 
-            <button onClick={()=> Navigate("/info/checkout")} className="mt-4 w-full py-3.25 border border-pink-600 bg-[#D9176C] cursor-pointer hover:bg-white hover:text-[#D9176C] active:scale-105 transition duration-300 text-white rounded-md text-[16px] font-medium">
+            <button onClick={()=>{cartItems.forEach((item) => addToCheckout(item)); Navigate("/info/checkout")}} className="mt-4 w-full py-3.25 border border-pink-600 bg-[#D9176C] cursor-pointer hover:bg-white hover:text-[#D9176C] active:scale-105 transition duration-300 text-white rounded-md text-[16px] font-medium">
               Check out
             </button>
 

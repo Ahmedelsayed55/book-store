@@ -17,7 +17,11 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import imgFlash from "../assets/hero2.png";
 
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
+import { useFavoritesStore } from "../store/FavoritesStore";
+import { useCartStore } from "../store/CartStore";
 const ProductDetails = () => {
+  const {addToFavorites}= useFavoritesStore();
+  const {addToCart}= useCartStore();
   const { id } = useParams();
   const product = products.find((item) => item.id === Number(id));
   const [currentImage, setCurrentImage] = useState(product?.img);
@@ -115,10 +119,10 @@ const ProductDetails = () => {
                   </span>
                 </h3>
                 <div className="flex gap-5 ">
-                  <button className="cursor-pointer hover:bg-white hover:text-[#D9176C] border border-[#D9176C] text-[16px] py-3.5 px-3 md:px-10 xl:px-21 flex gap-2 items-center bg-[#D9176C] text-white rounded-2xl">
+                  <button onClick={()=> addToCart(product)} className="cursor-pointer hover:bg-white hover:text-[#D9176C] border border-[#D9176C] text-[16px] py-3.5 px-3 md:px-10 xl:px-21 flex gap-2 items-center bg-[#D9176C] text-white rounded-2xl">
                     Add to Cart <BsCart3 />
                   </button>
-                  <button className="cursor-pointer hover:bg-[#D9176C] hover:text-white text-2xl text-[#D9176C] border border-[#D9176C] hover:border-[#d6d6d6] p-3.5 rounded-md">
+                  <button onClick={()=> addToFavorites(product)} className="cursor-pointer hover:bg-[#D9176C] hover:text-white text-2xl text-[#D9176C] border border-[#D9176C] hover:border-[#d6d6d6] p-3.5 rounded-md">
                     <GrFavorite />
                   </button>
                 </div>

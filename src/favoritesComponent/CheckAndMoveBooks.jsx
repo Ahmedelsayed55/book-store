@@ -2,7 +2,11 @@ import React from "react";
 import { useFavoritesStore } from "../store/FavoritesStore";
 import right from "../assets/right.svg";
 import { useCartStore } from "../store/CartStore";
+import { useCheckoutStore } from "../store/Checkout";
+import { useNavigate } from "react-router-dom";
 const CheckAndMoveBooks = () => {
+  const Navigate = useNavigate();
+  const { addToCheckout } = useCheckoutStore();
   const { favoritesItems, total, clearFavorites } = useFavoritesStore();
   const { addToCart } = useCartStore();
 
@@ -15,7 +19,7 @@ const CheckAndMoveBooks = () => {
         >
           Move to cart
         </button>
-        <div className="flex justify-between cursor-pointer transition duration-300 hover:bg-[#db4284] items-center px-6 py-1 border border-[#D9176C] rounded-lg bg-[#D9176C] w-[320px]">
+        <div onClick={()=>{favoritesItems.forEach((item) => addToCheckout(item)); Navigate("/info/checkout") }} className="flex justify-between cursor-pointer transition duration-300 hover:bg-[#db4284] items-center px-6 py-1 border border-[#D9176C] rounded-lg bg-[#D9176C] w-[320px]">
           <p className="flex flex-col text-white text-[14px]">
             {favoritesItems.length} item
             <span>${total.toFixed(1)}</span>

@@ -8,7 +8,7 @@ const CartBooks = () => {
   const { cartItems, decrementQty, incrementQty, removeBook } = useCartStore();
   return (
     <div className="w-full overflow-x-auto ">
-      <div className="w-[900px] md:w-[1080px] lg:w-[1280px] xl:w-[1480px] mx-auto   ">
+      <div className="w-225 md:w-270 lg:w-7xl xl:w-370 mx-auto   ">
         <div className="grid grid-cols-12 gap-4 mb-4 px-4 font-semibold text-gray-700">
           <div className="col-span-6 text-center">Item</div>
           <div className="col-span-2 text-center">Quantity</div>
@@ -18,9 +18,9 @@ const CartBooks = () => {
         </div>
 
         <div className="flex flex-col gap-4">
-          {cartItems.map((item) => (
+          {cartItems.map((item, i) => (
             <div
-              key={item.id}
+              key={i}
               className="grid grid-cols-12 gap-4 items-center bg-white p-4 rounded-lg shadow-sm border border-gray-100 "
             >
               {/* Item Column */}

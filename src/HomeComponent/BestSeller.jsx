@@ -10,9 +10,11 @@ import heroImg5 from "../assets/hero5.jpg";
 import heroImg6 from "../assets/hero6.jpg";
 import heroImg7 from "../assets/hero7.jpg";
 import heroImg8 from "../assets/hero8.png";
+import { useNavigate } from "react-router-dom";
 
 
 const BestSeller = ({bestSeller}) => {
+  const Navigate = useNavigate();
   const books = [
     heroImg,
     heroImg2,
@@ -60,7 +62,7 @@ const BestSeller = ({bestSeller}) => {
 
       {/* Button */}
       <div className="flex justify-center mt-20">
-        <button className="bg-pink-600 hover:bg-pink-700 transition px-10 py-3 rounded-lg font-medium text-white">
+        <button onClick={()=> Navigate("/info/books")}  className="bg-pink-600 cursor-pointer hover:bg-pink-700 transition px-10 py-3 rounded-lg font-medium text-white">
           Shop now
         </button>
       </div>
