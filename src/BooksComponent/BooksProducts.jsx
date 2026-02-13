@@ -17,13 +17,13 @@ const BooksProducts = ({ category, categories }) => {
     const byButton = category ? cat.category === category : false;
     const bySide = categories.length > 0 ? categories.includes(cat.category) : false;
 
-    if (!category && categories.length === 0) return true; // لو مفيش فلتر
+    if (!category && categories.length === 0) return true;
     return byButton || bySide; // OR logic
   });
 
-  // --- Pagination ---
+  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3; // عدد الكتب لكل صفحة
+  const itemsPerPage = 3; 
 
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -37,7 +37,7 @@ const BooksProducts = ({ category, categories }) => {
   const navigate = useNavigate();
   return (
     <div className="py-10">
-      {/* عرض الكتب */}
+      {/* show books*/}
       <div className="grid grid-cols-1 gap-20 ">
         {currentProducts.map((data) => (
           <div

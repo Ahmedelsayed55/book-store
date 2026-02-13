@@ -4,6 +4,9 @@ import imgBook3 from "../assets/hero3.jpg";
 import imgcost from "../assets/use.jpg";
 import star from "../assets/star.png";
 
+import orderShipping from "../assets/orderShipping.svg";
+import placed from "../assets/placed.svg";
+// products review data
 export const products = [
   {
     id: 1,
@@ -206,7 +209,7 @@ export const products = [
     bestsellerrank: "#3",
   },
 ];
-
+// costumer review data
 export const costumer = [
   {
     id: 1,
@@ -273,5 +276,71 @@ export const costumer = [
     rating: "5.0",
     star: star,
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, ",
+  },
+];
+// order review data
+export const order = [
+  {
+    id: 123456,
+    state: "In Progress",
+    date: "10/02/2026",
+    address: "Maadi, Cairo, Egypt.",
+    img: orderShipping,
+  },
+  {
+    id: 123457,
+    state: "In Progress",
+    date: "1/01/2026",
+    address: "Maadi, Cairo, Egypt.",
+    img: orderShipping,
+  },
+  {
+    id: 123458,
+    state: "Completed",
+    date: "28/07/2024",
+    address: "Maadi, Cairo, Egypt.",
+    img: "",
+  },
+  {
+    id: 123459,
+    state: "Completed",
+    date: "28/07/2024",
+    address: "Maadi, Cairo, Egypt.",
+    img: "",
+  },
+  {
+    id: 123460,
+    state: "Canceled",
+    date: "28/07/2024",
+    address: "Maadi, Cairo, Egypt.",
+    img: "",
+  },
+  {
+    id: 123451,
+    state: "Completed",
+    date: "28/07/2024",
+    address: "Maadi, Cairo, Egypt.",
+    img: "",
+  },
+  {
+    id: 123452,
+    state: "Canceled",
+    date: "2/08/2024",
+    address: "Maadi, Cairo, Egypt.",
+    img: "",
+  },
+  {
+    id: 123453,
+    state: "In Progress",
+    date: "8/02/2024",
+    address: "Maadi, Cairo, Egypt.",
+    img: placed,
+  },
+  {
+    id: 123454,
+    state: "In Progress",
+    date: "1/01/2026",
+    address: "Maadi, Cairo, Egypt.",
+    img: placed,
   },
 ];
