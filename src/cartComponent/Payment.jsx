@@ -69,7 +69,7 @@ const Payment = () => {
               Check out
             </button>
 
-            <button className="w-full py-3.25 border border-pink-600 text-[#D9176C] cursor-pointer hover:bg-[#D9176C] hover:text-white active:scale-105 transition duration-300 rounded-md text-[16px] font-medium">
+            <button onClick={()=> Navigate("/info/books")} className="w-full py-3.25 border border-pink-600 text-[#D9176C] cursor-pointer hover:bg-[#D9176C] hover:text-white active:scale-105 transition duration-300 rounded-md text-[16px] font-medium">
               Keep Shopping
             </button>
           </div>

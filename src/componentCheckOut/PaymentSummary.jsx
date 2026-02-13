@@ -33,10 +33,14 @@ const PaymentSummary = () => {
             icon: "success",
             title: "Successful!",
             text: "Your order has been confirmed",
+            showCancelButton: true, 
             confirmButtonText: "Keep shopping",
+            cancelButtonText: "Show order", 
           }).then((result) => {
             if (result.isConfirmed) {
-              navigate("/info/books");
+              navigate("/info/books"); 
+            } else if (result.isDismissed) {
+              navigate("/info/orders"); 
             }
           });
         }}
