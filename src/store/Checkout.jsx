@@ -7,12 +7,13 @@ export const useCheckoutStore = create(
     (set) => ({
       checkoutItems: [],
       total: 0,
+      clearCart: () => set({ checkoutItems: [], total: 0 }),
       addToCheckout: (book) =>
         set((state) => {
           let books = [...state.checkoutItems];
           const bookIndex = books.findIndex((i) => i.id === book.id);
           if (bookIndex !== -1) {
-            books[bookIndex].qty += 1;  
+            books[bookIndex].qty += 1;
             toast.success(
               `${book.title} Quantity Changed to :` + books[bookIndex].qty,
             );

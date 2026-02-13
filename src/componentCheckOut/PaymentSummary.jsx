@@ -1,47 +1,51 @@
-import React from 'react'
-import { useCheckoutStore } from '../store/Checkout';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import React from "react";
+import { useCheckoutStore } from "../store/Checkout";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const PaymentSummary = () => {
-    const {total} = useCheckoutStore();
-    const navigate = useNavigate();
+  const { total, clearCart } = useCheckoutStore();
+  const navigate = useNavigate();
   return (
-    <div className='flex flex-col gap-4 mt-10'>
-      <div className='flex items-center justify-between'>
-        <h3 className='text-[#22222280]'>Subtotal</h3>
-        <p className='text-[20px] text-[#222222]'>${total.toFixed(2)}</p>
+    <div className="flex flex-col gap-4 mt-10">
+      <div className="flex items-center justify-between">
+        <h3 className="text-[#22222280]">Subtotal</h3>
+        <p className="text-[20px] text-[#222222]">${total.toFixed(2)}</p>
       </div>
-      <div className='flex items-center justify-between'>
-        <h3 className='text-[#22222280]'>Tax</h3>
-        <p className='text-[20px] text-[#222222]'>$4</p>
+      <div className="flex items-center justify-between">
+        <h3 className="text-[#22222280]">Tax</h3>
+        <p className="text-[20px] text-[#222222]">$4</p>
       </div>
-      <div className='flex items-center justify-between'>
-        <h3 className='text-[#22222280]'>Shipping</h3>
-        <p className='text-[20px] text-[#22222280]'>$0</p>
+      <div className="flex items-center justify-between">
+        <h3 className="text-[#22222280]">Shipping</h3>
+        <p className="text-[20px] text-[#22222280]">$0</p>
       </div>
-      <div className='flex items-center justify-between'>
-        <h3 className='text-[#22222280]'>Total (USD)</h3>
-        <p className='text-[20px] text-[#D9176C] font-semibold'>${(total + 4).toFixed(2)}</p>
+      <div className="flex items-center justify-between">
+        <h3 className="text-[#22222280]">Total (USD)</h3>
+        <p className="text-[20px] text-[#D9176C] font-semibold">
+          ${(total + 4).toFixed(2)}
+        </p>
       </div>
-      <button 
-             onClick={() =>{ 
-                     
-                        Swal.fire({
-                          icon: 'success',
-                          title: "Successful!",
-                          text: "Your order has been confirmed",
-                           confirmButtonText: "Keep shopping"
-                        }).then((result) => {
-                          if (result.isConfirmed) {
-                            navigate("/info/books")
-                          }
-                        }
-                      )
-                      }}
-      className='mt-10 bg-[#D9176C] text-white px-6 py-3 rounded-md w-full border border-[#D9176C] hover:bg-white hover:text-[#D9176C] transition duration-200 cursor-pointer active:scale-105'>Confirm order</button>
+      <button
+        onClick={() => {
+          clearCart();
+          Swal.fire({
+            icon: "success",
+            title: "Successful!",
+            text: "Your order has been confirmed",
+            confirmButtonText: "Keep shopping",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate("/info/books");
+            }
+          });
+        }}
+        className="mt-10 bg-[#D9176C] text-white px-6 py-3 rounded-md w-full border border-[#D9176C] hover:bg-white hover:text-[#D9176C] transition duration-200 cursor-pointer active:scale-105"
+      >
+        Confirm order
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default PaymentSummary
+export default PaymentSummary;
