@@ -55,7 +55,7 @@ const MainNavbar = () => {
               >
                 <GrFavorite />
                 <span
-                  className="absolute text-[7px] p-0.5 border border-white
+                  className="absolute text-[7px] md:text-[10px] p-0.5 border border-white
                      text-white bg-[#D9176C] rounded-full min-w-4 flex items-center justify-center -top-1.5 -right-1.5"
                 >
                   {favoritesItems.length}
@@ -69,7 +69,7 @@ const MainNavbar = () => {
               >
                 <BsCart3 />
                 <span
-                  className="absolute text-[7px] p-0.5 border border-white
+                  className="absolute text-[7px] md:text-[10px] p-0.5 border border-white
                      text-white bg-[#D9176C] rounded-full min-w-4 flex items-center justify-center -top-1.5 -right-1.5"
                 >
                   {cartItems.length}
