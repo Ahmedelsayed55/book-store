@@ -2,7 +2,7 @@ import React from "react";
 
 const BtnState = ({ state, setSelectedState, selectedState }) => {
   return (
-    <div className="container mx-auto flex gap-6 py-15">
+    <div className="container mx-auto flex gap-3 md:gap-6 py-15">
       {
         <button
           onClick={() => setSelectedState("")}

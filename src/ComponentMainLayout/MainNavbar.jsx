@@ -23,22 +23,39 @@ const MainNavbar = () => {
     // console.log(storedUser);
   }, []);
 
+  // handel scroll
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <div className="w-full absolute top-0 z-50 bg-white/20 py-6">
-      <div className="container mx-auto  flex justify-between items-center">
+    <div
+      className={`w-full fixed left-0 top-0 z-50 py-6  pr-10 transition-all duration-300 ${
+        isScrolled ? "bg-black/50 shadow-md" : "bg-white/20"
+      }`}
+    >
+      <div className="container mx-auto flex  justify-between items-center">
         <LinkForNav />
         {token ? (
           <div className="flex gap-5 items-center">
             <div className="flex gap-5">
               <NavLink
                 className={({ isActive }) =>
-                  `font-bold relative text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
+                  `font-bold relative md:text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
                 }
                 to={"/info/favorites"}
               >
                 <GrFavorite />
                 <span
-                  className="absolute text-[10px] p-0.5 border border-white
+                  className="absolute text-[7px] p-0.5 border border-white
                      text-white bg-[#D9176C] rounded-full min-w-4 flex items-center justify-center -top-1.5 -right-1.5"
                 >
                   {favoritesItems.length}
@@ -46,13 +63,13 @@ const MainNavbar = () => {
               </NavLink>
               <NavLink
                 className={({ isActive }) =>
-                  `font-bold relative text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
+                  `font-bold relative md:text-2xl ${isActive ? "text-[#EAA451]" : "text-white"}`
                 }
                 to={"/info/cart"}
               >
                 <BsCart3 />
                 <span
-                  className="absolute text-[10px] p-0.5 border border-white
+                  className="absolute text-[7px] p-0.5 border border-white
                      text-white bg-[#D9176C] rounded-full min-w-4 flex items-center justify-center -top-1.5 -right-1.5"
                 >
                   {cartItems.length}
@@ -61,9 +78,9 @@ const MainNavbar = () => {
             </div>
 
             <div className="flex gap-5">
-              <img src={userImg} alt="" />
+              <img className="w-10 h-10 " src={userImg} alt="" />
               <div
-                className="relative z-50 text-white cursor-pointer flex items-center gap-6"
+                className="relative left-0 z-50 text-white cursor-pointer flex items-center :gap-6"
                 onClick={() => {
                   setShowInfo(!showInfo);
                 }}
@@ -72,12 +89,12 @@ const MainNavbar = () => {
                   <h3>
                     {userInfo?.first_name} {userInfo?.last_name}
                   </h3>
-                  <p className="text-[14px] text-[#FFFFFF80]">
+                  <p className="text-[12px] md:text-[14px] text-[#FFFFFF80]">
                     {userInfo?.email}
                   </p>
                 </div>
                 {showInfo ? <FaChevronUp /> : <FaChevronDown />}
-                {showInfo && <ModelUser />}
+                {showInfo ? <ModelUser />: "" }
               </div>
             </div>
           </div>

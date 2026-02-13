@@ -16,32 +16,32 @@ const ShowOrder = ({ selectedState }) => {
       {filteredOrder.map((data) => (
         <div
           key={data.id}
-          className="flex flex-col gap-6  rounded-2xl p-6 shadow bg-white"
+          className="flex flex-col gap-6  rounded-2xl pt-6 pb-10 px-6 shadow bg-white"
         >
           <div className="w-full flex justify-end">
             {" "}
-            <button className="text-[#D9176C80] cursor-pointer active:scale-105">
+            <button className="text-[#D9176C80] text-[30px] cursor-pointer active:scale-105">
               {" "}
               <RiDeleteBin5Line />
             </button>
           </div>
           {/* info for order */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 mb-10">
             <div className="flex items-center justify-between">
-              <h2>Order No</h2>
-              <p>{data.id}</p>
+              <h2 className="text-[#22222280] text-[20px]">Order No</h2>
+              <p className="text-[#222222] text-[20px]">#{data.id}</p>
             </div>
             <div className="flex items-center justify-between">
-              <h2>Status</h2>
-              <p>{data.state}</p>
+              <h2 className="text-[#22222280] text-[20px]">Status</h2>
+              <p className="text-[#222222] text-[20px]">{data.state}</p>
             </div>
             <div className="flex items-center justify-between">
-              <h2>Date</h2>
-              <p>{data.date}</p>
+              <h2 className="text-[#22222280] text-[20px]">Date</h2>
+              <p className="text-[#222222] text-[20px]">{data.date}</p>
             </div>
             <div className="flex items-center justify-between">
-              <h2>Address</h2>
-              <p>{data.address}</p>
+              <h2 className="text-[#22222280] text-[20px]">Address</h2>
+              <p className="text-[#222222] text-[20px]">{data.address}</p>
             </div>
           </div>
           <div className="w-full ">

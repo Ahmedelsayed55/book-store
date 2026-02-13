@@ -7,7 +7,7 @@ const HomeLayout = () => {
 
   return (
     <div>
-      <header ><MainNavbar/></header>
+      <header className='w-fit'><MainNavbar/></header>
       <main className='bg-[#F5F5F5]'><Outlet/></main>
       <footer className='bg-[#3B2F4A] h-64 flex items-center justify-center'>
         <Footer/>
